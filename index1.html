@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>세상의 모든 청년 시연판</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+:root{--navy:#0F1E3D;--navy2:#18294F;--ink:#1A2236;--sub:#5D6880;--line:#D9DEE8;--soft:#EEF2FA;--sel:#DCE6F7;--acc:#F5B83D;--bg:#E9ECF2}
+:root{--page:#E9ECF2;--pagefg:#5D6880}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1020;--page:#0B1020;--pagefg:#9AA6BE;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1020;--page:#0B1020;--pagefg:#9AA6BE;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--page);font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding-block:24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{max-width:420px;width:100%;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:13px;color:var(--pagefg)}
+.top b{color:#8FA0C4}
+.top button{background:none;border:1px solid #9AA6BE;color:#7A859C;border-radius:20px;padding:4px 12px;font:inherit;font-size:12px;cursor:pointer}
+.phone{width:100%;max-width:390px;height:780px;max-height:calc(100vh - 90px);min-height:640px;background:#fff;border-radius:40px;border:10px solid #111827;position:relative;overflow:hidden;box-shadow:0 30px 60px rgba(15,30,61,.25)}
+.scr{position:absolute;inset:0;display:none;flex-direction:column;padding:44px 22px 22px;overflow-y:auto}
+.scr.on{display:flex}
+.sb{position:absolute;top:0;left:0;right:0;height:34px;display:flex;justify-content:space-between;align-items:center;padding:0 24px;font-size:12px;font-weight:700;z-index:5;pointer-events:none}
+.dark .sb,.sb.w{color:#fff}
+.back{background:none;border:none;font-size:22px;cursor:pointer;color:inherit;padding:0;width:28px;text-align:left}
+.dots{display:flex;gap:7px;justify-content:center;margin:4px 0 16px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#D1D6E0}.dots i.on{background:var(--navy)}
+h2{font-size:19px;text-align:center;margin:6px 0 4px;font-weight:700}
+.hint{text-align:center;font-size:12px;color:var(--sub);margin-bottom:14px}
+.cta{margin-top:auto;background:var(--navy);color:#fff;border:none;border-radius:12px;padding:15px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;width:100%}
+.cta:disabled{opacity:.35;cursor:default}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.opt{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:22px 8px;text-align:center;cursor:pointer;font:inherit;font-size:15px;color:var(--ink);transition:.15s}
+.opt .ic{font-size:34px;display:block;margin-bottom:8px;color:var(--navy)}
+.opt.sel{background:var(--sel);border-color:var(--navy)}
+.list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.list .opt{padding:15px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.grid4 .opt{padding:13px 0;font-size:14px;border-radius:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.grid3 .opt{padding:11px 0;font-size:13px;border-radius:10px}
+.chk{display:flex;flex-direction:column;margin-top:6px}
+.chk label{display:flex;gap:10px;align-items:center;padding:12px 4px;border-bottom:1px solid #EEF0F4;font-size:14px;cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:var(--navy)}
+.dark{background:var(--navy);color:#fff}
+.splash{justify-content:flex-start;align-items:center;text-align:center;background:radial-gradient(90% 55% at 50% 38%,#1E3A73 0,var(--navy) 70%);color:#fff;padding-top:54px;gap:0}
+.sky i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.3;animation:tw 2.8s infinite ease-in-out}
+@keyframes tw{50%{opacity:1;transform:scale(1.6)}}
+.sp-top{font-size:11px;letter-spacing:.32em;color:#9DB4E0;font-weight:700}
+.sp-orbit{position:relative;width:220px;height:200px;margin:14px 0 6px}
+.sp-planet{position:absolute;left:50%;top:50%;width:112px;height:112px;margin:-56px 0 0 -56px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#BFD8FF,#4A7FE0 52%,#1B3A86 100%);box-shadow:0 0 50px rgba(110,160,255,.55),inset -12px -14px 30px rgba(10,25,70,.55)}
+.sp-ring{position:absolute;left:50%;top:50%;width:200px;height:62px;margin:-31px 0 0 -100px;border:2px solid rgba(190,210,255,.45);border-radius:50%;transform:rotate(-16deg)}
+.sp-moon{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--acc);box-shadow:0 0 14px var(--acc);animation:orbit 7s linear infinite}
+@keyframes orbit{from{transform:rotate(0) translateX(100px) rotate(0) scaleY(1)}to{transform:rotate(360deg) translateX(100px) rotate(-360deg)}}
+.sp-xp{position:absolute;right:6px;top:18px;background:var(--acc);color:#1A1A1A;font-weight:900;font-size:12px;border-radius:12px;padding:4px 9px;transform:rotate(8deg)}
+.sp-copy .s1{font-size:15px;color:#C9D6F2}.sp-copy .s2{font-size:36px;font-weight:900;letter-spacing:-.02em;margin-top:2px}
+.sp-copy .s3{font-size:13.5px;line-height:1.65;color:#C9D6F2;margin:12px 0 0}
+.sp-chips{display:flex;gap:6px;justify-content:center;margin-top:16px}
+.sp-chips span{font-size:11.5px;border:1px solid #3E5A92;border-radius:14px;padding:4px 10px;color:#DCE6FA}
+.splash .sp-cta{margin-top:auto;background:#fff;color:var(--navy)}
+.sp-sub{font-size:11px;color:#8FA3CC;margin:10px 0 0}
+@media (prefers-reduced-motion:reduce){.sky i,.sp-moon{animation:none}}
+.done{justify-content:center;align-items:center;text-align:center}
+.done .big{width:84px;height:84px;border-radius:50%;border:4px solid var(--navy);display:flex;align-items:center;justify-content:center;font-size:42px;color:var(--navy);margin-bottom:18px}
+.path{border:1.5px solid var(--line);border-radius:16px;padding:18px;margin-top:14px;cursor:pointer;display:flex;gap:14px;align-items:flex-start;text-align:left;background:#fff;font:inherit;color:inherit}
+.path .ic{font-size:28px}.path b{display:block;font-size:15px;margin-bottom:6px}.path small{color:var(--sub);font-size:12px;line-height:1.5}
+.path.sel{border-color:var(--navy);background:var(--soft)}
+.field{margin-top:14px}.field p{font-size:13px;font-weight:700;text-align:center;margin:0 0 6px}
+.field input{width:100%;border:1.5px solid var(--navy);border-radius:10px;padding:11px 12px;font:inherit;font-size:14px}
+.field small{display:block;text-align:center;font-size:11px;color:#9AA3B5;margin-top:4px}
+.kwbtn{width:100%;border:1.5px solid var(--navy);border-radius:10px;padding:11px;background:#fff;font:inherit;font-weight:700;cursor:pointer}
+.kw{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:8px}
+.kw .opt{display:flex;align-items:center;gap:8px;padding:13px 12px;font-size:13.5px;text-align:left;border-radius:10px;position:relative}
+.kw .opt.sel:after{content:"✓";position:absolute;top:-6px;right:-6px;background:var(--navy);color:#fff;width:18px;height:18px;border-radius:50%;font-size:11px;display:flex;align-items:center;justify-content:center}
+.res{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.card{border:1px solid var(--line);border-radius:14px;padding:13px 14px;background:#fff;cursor:pointer}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;border-radius:5px;padding:2px 7px;margin-right:4px}
+.t-ok{background:#E3F2E8;color:#226A3D}.t-ch{background:#FDF0DE;color:#94570E}.t-k{background:var(--soft);color:#2B4C86}
+.card h4{margin:7px 0 4px;font-size:15px}.card p{margin:0;font-size:12.5px;color:var(--sub);line-height:1.5}
+.why{font-size:11.5px;color:#2B4C86;margin-top:6px}
+.sumbox{background:var(--soft);border-radius:12px;padding:10px 12px;font-size:12px;color:#2B4C86;line-height:1.5}
+/* quest home */
+.q{background:var(--navy);color:#fff;padding:44px 16px 16px}
+.tabs{display:flex;gap:10px;justify-content:center}
+.tabs button{flex:1;background:#fff;color:var(--navy);border:none;border-radius:14px;padding:9px 4px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;line-height:1.3}
+.pt{display:flex;justify-content:center;align-items:center;gap:6px;font-weight:700;font-size:17px;margin:16px 0 4px}
+.planet{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:190px}
+.orb{border-radius:50%;background:radial-gradient(circle at 35% 30%,#9EC5FF,#3B6FD1 55%,#1D3A80);box-shadow:0 0 40px rgba(120,170,255,.55);transition:.5s;position:relative}
+.ring{position:absolute;border:2px solid rgba(255,255,255,.35);border-radius:50%;transform:rotate(-18deg)}
+.lv{position:absolute;bottom:4px;font-size:12px;color:#B9C7E6}
+.qg{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.qg button{background:var(--navy2);border:1px solid #2E4475;color:#fff;border-radius:14px;padding:12px 4px;font:inherit;font-size:12px;font-weight:700;cursor:pointer;line-height:1.35;min-height:72px}
+.qg button.hi{background:#fff;color:var(--navy)}
+.qg .ic{font-size:20px;display:block;margin-bottom:3px}
+.xp{font-size:20px;color:var(--acc);font-weight:900}
+.qhead{display:flex;align-items:center;justify-content:space-between;background:var(--navy2);border-radius:14px;padding:10px 14px;margin:10px 0}
+.qhead small{color:#B9C7E6;font-size:11px;display:block}
+.qcard{background:#fff;color:var(--ink);border-radius:18px;padding:18px;text-align:center;display:flex;flex-direction:column;gap:10px;flex:1}
+.pill{align-self:center;background:var(--navy);color:#fff;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:700}
+.qcard h3{margin:4px 0;font-size:19px;line-height:1.45}
+.qmeta{font-size:11.5px;color:var(--sub)}
+.qimg{font-size:70px;line-height:1.1}
+.qbtns{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:auto}
+.qbtns button,.qbtns label{border-radius:14px;padding:11px 4px;font:inherit;font-weight:700;font-size:13.5px;cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--ink);text-align:center}
+.qbtns .p{background:#1E3A8A;color:#fff;border-color:#1E3A8A}
+.qbtns em{display:block;font-style:normal;color:var(--acc);font-size:15px}
+.chat{flex:1;display:flex;flex-direction:column;gap:8px;overflow-y:auto;padding:6px 0}
+.m{max-width:82%;padding:9px 12px;border-radius:14px;font-size:13.5px;line-height:1.5;white-space:pre-line}
+.m.b{background:var(--navy2);align-self:flex-start;border-top-left-radius:4px}
+.m.u{background:#fff;color:var(--ink);align-self:flex-end;border-top-right-radius:4px}
+.m.alert{background:#FFF4D6;color:#5B3B00;border:1px solid #F3C969}
+.inrow{display:flex;gap:8px}.inrow input{flex:1;border-radius:12px;border:none;padding:11px;font:inherit;font-size:14px}.inrow button{border:none;border-radius:12px;background:var(--acc);font:inherit;font-weight:700;padding:0 14px;cursor:pointer}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chips button{background:transparent;border:1px solid #4B628F;color:#D7E1F5;border-radius:16px;padding:5px 10px;font:inherit;font-size:12px;cursor:pointer}
+.row{display:flex;justify-content:space-between;align-items:center;background:var(--navy2);border-radius:12px;padding:12px 14px;margin-top:8px;font-size:13.5px}
+.row a{color:var(--acc);font-weight:900;text-decoration:none;font-size:16px}
+.toast{position:absolute;left:50%;top:60px;transform:translateX(-50%);background:var(--acc);color:#1A1A1A;font-weight:900;border-radius:20px;padding:8px 16px;font-size:14px;opacity:0;transition:.3s;z-index:20;pointer-events:none}
+.toast.on{opacity:1;top:72px}
+.modal{position:absolute;inset:0;background:rgba(10,18,40,.5);display:none;align-items:flex-end;z-index:15}
+.modal.on{display:flex}
+.sheet{background:#fff;width:100%;border-radius:20px 20px 0 0;padding:20px;max-height:80%;overflow-y:auto}
+.sheet h3{margin:6px 0 10px}.sheet dl{margin:0;font-size:13px}.sheet dt{font-weight:700;margin-top:10px;color:var(--navy)}.sheet dd{margin:3px 0 0;color:var(--sub);line-height:1.55}
+.note{font-size:10.5px;color:#9AA3B5;text-align:center;margin-top:10px}
+.foot{max-width:420px;font-size:12px;color:var(--pagefg);text-align:center;margin-top:12px;line-height:1.6}
+button:focus-visible,input:focus-visible,label:focus-within{outline:2px solid var(--acc);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top"><span><b>세상의 모든 청년</b> · 웹 시연판 v0.1</span><button onclick="resetAll()">처음부터</button></div>
+<div class="phone" id="phone">
+<div class="sb w" id="sb"><span>9:41</span><span>●●● ▮</span></div>
+<div class="toast" id="toast"></div>
+
+<section class="scr splash on" id="s-splash">
+<div class="sky"><i style="left:12%;top:9%"></i><i style="left:82%;top:12%;animation-delay:.8s"></i><i style="left:64%;top:24%;animation-delay:1.6s"></i><i style="left:20%;top:31%;animation-delay:.4s"></i><i style="left:88%;top:40%;animation-delay:1.2s"></i><i style="left:8%;top:52%;animation-delay:2s"></i></div>
+<div class="sp-top">YOUTH PLANET</div>
+<div class="sp-orbit"><div class="sp-ring"></div><div class="sp-planet"></div><div class="sp-moon"></div><div class="sp-xp">+5 ★</div></div>
+<div class="sp-copy"><div class="s1">세상의</div><div class="s2">모든 청년</div>
+<p class="s3">하루 10분 퀘스트로 나의 행성을 키우고<br>내게 맞는 지원까지 한 번에 찾아요</p></div>
+<div class="sp-chips"><span>매일 퀘스트</span><span>맞춤 제도</span><span>AI 메이트</span></div>
+<button class="cta sp-cta" onclick="go('s-gender')">시작하기 →</button>
+<p class="sp-sub">가입 없이 바로 시작 · 이름을 묻지 않아요</p>
+</section>
+
+<section class="scr" id="s-gender"><button class="back" onclick="go('s-splash')">‹</button><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+<h2>성별이 어떻게 되세요?</h2>
+<div class="two" data-k="gender"><button class="opt" data-v="여성"><span class="ic">♀</span>여성</button><button class="opt" data-v="남성"><span class="ic">♂</span>남성</button></div>
+<button class="cta" data-need="gender" onclick="go('s-age')" disabled>다음</button></section>
+
+<section class="scr" id="s-age"><button class="back" onclick="go('s-gender')">‹</button><div class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+<h2>연령대는 어떻게 되세요?</h2>
+<div class="list" data-k="age"><button class="opt" data-v="10~19세">10~19세</button><button class="opt" data-v="20~25세">20~25세</button><button class="opt" data-v="26~30세">26~30세</button><button class="opt" data-v="31~34세">31~34세</button></div>
+<button class="cta" data-need="age" onclick="go('s-marry')" disabled>다음</button></section>
+
+<section class="scr" id="s-marry"><button class="back" onclick="go('s-age')">‹</button><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+<h2>당신은 지금?</h2>
+<div class="two" data-k="marry"><button class="opt" data-v="미혼"><span class="ic">◯</span>미혼</button><button class="opt" data-v="기혼"><span class="ic">∞</span>기혼</button></div>
+<button class="cta" data-need="marry" onclick="go('s-region')" disabled>다음</button></section>
+
+<section class="scr" id="s-region"><button class="back" onclick="go('s-marry')">‹</button><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+<h2>어디에 사시나요?</h2><div class="hint">시·도를 고르면 시·군·구가 이어져요</div>
+<div class="grid4" data-k="sido" id="sido"></div>
+<div id="sggWrap" style="display:none"><div class="hint" style="margin:14px 0 0">시·군·구</div><div class="grid3" data-k="sgg" id="sgg"></div></div>
+<button class="cta" style="margin-top:16px" data-need="sido" onclick="go('s-live')" disabled>다음</button></section>
+
+<section class="scr" id="s-live"><button class="back" onclick="go('s-region')">‹</button><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+<h2>당신은 지금?</h2><div class="hint">(복수 선택 가능)</div>
+<div class="chk" id="live"></div>
+<button class="cta" style="margin-top:14px" data-need="live" onclick="go('s-done')" disabled>다음</button></section>
+
+<section class="scr done" id="s-done"><div class="big">✓</div><h2 style="line-height:1.5">당신에 대해<br>알려주셔서<br>감사합니다</h2>
+<button class="cta" style="position:absolute;left:22px;right:22px;bottom:22px;width:auto" onclick="go('s-path')">다음</button></section>
+
+<section class="scr" id="s-path"><h2 style="margin-top:20px">선택해주세요</h2>
+<button class="path" onclick="startQuest()"><span class="ic">📅</span><span><b>매일 성장 퀘스트 제공받기</b><small>이런 분께 추천드려요<br>“당장 뭘 해야 할지 모르겠어요!”</small></span></button>
+<button class="path" onclick="go('s-info')"><span class="ic">📖</span><span><b>정보만 알아보기</b><small>이런 분께 추천드려요<br>“제게 필요한 제도를 찾고 싶어요!”</small></span></button>
+<p class="note" id="profileNote"></p></section>
+
+<section class="scr" id="s-info"><button class="back" onclick="go(state.from||'s-path')">‹</button>
+<h2>무엇을 알고 싶으세요?</h2>
+<div class="field"><p>알고 싶은 정보가 구체적이에요</p><input id="qSearch" placeholder="🔍  예) 월세 지원"><small>(예시) 실업크레딧에 대해 알고 싶어요</small></div>
+<div class="field"><p>제게 필요한 정보가 무엇인지 모르겠어요</p><input id="qSitu" placeholder="현재 상황 입력"><small>(예시) 퇴사하고 서울로 이사했어요</small></div>
+<div class="field"><p>관심 분야로 고를래요</p><button class="kwbtn" onclick="go('s-kw')">키워드 선택</button></div>
+<button class="cta" style="margin-top:18px" onclick="runSearch()">찾아보기</button></section>
+
+<section class="scr" id="s-kw"><button class="back" onclick="go('s-info')">‹</button>
+<h2>같이 알아봐요!</h2><div class="hint">키워드 선택 (복수 선택 가능)</div>
+<div class="kw" data-k="kw" data-multi="1" id="kw"></div>
+<button class="cta" style="margin-top:16px" onclick="runSearch(true)">다음</button></section>
+
+<section class="scr" id="s-res"><button class="back" onclick="go('s-info')">‹</button>
+<h2>이런 제도가 있어요</h2>
+<div class="sumbox" id="sum"></div>
+<div class="res" id="res"></div>
+<p class="note">시연용 샘플 데이터 · 실서비스는 한국사회보장정보원 복지서비스 API 실시간 조회<br>‘해당 가능’은 안내용이며 최종 자격은 신청 단계에서 확인</p></section>
+
+<section class="scr q" id="s-home">
+<div class="tabs"><button onclick="state.from='s-home';go('s-info')">제도<br>알아보기</button><button onclick="go('s-call')">기관<br>전화번호</button></div>
+<div class="pt">나의 행성 ▾</div>
+<div class="planet"><div class="ring" id="ring"></div><div class="orb" id="orb"></div><div class="lv" id="lv"></div></div>
+<div class="qg">
+<button onclick="go('s-donelist')"><span class="ic">✔</span>해낸<br>퀘스트</button>
+<button class="hi" onclick="openQuest()"><span class="ic">⚑</span>오늘의<br>퀘스트</button>
+<button onclick="toast('경험치 '+(nextLv()-state.xp)+'점 더 모으면 행성이 커져요')"><span class="ic">🌱</span>경험치로<br>행성 키우기</button>
+<button><span style="font-size:11px;color:#B9C7E6">내 경험치</span><br><span class="xp" id="xp1">0 ★</span></button>
+<button onclick="openMate()"><span class="ic">💬</span>메이트와<br>대화하기</button>
+<button onclick="go('s-others')"><span class="ic">🪐</span>다른 행성<br>찾아가기</button>
+</div></section>
+
+<section class="scr q" id="s-quest">
+<div class="tabs"><button onclick="state.from='s-quest';go('s-info')">제도<br>알아보기</button><button onclick="go('s-call')">기관<br>전화번호</button></div>
+<div class="pt"><button class="back" style="color:#fff;margin-right:auto" onclick="go('s-home')">‹</button><span style="margin-right:auto">나의 행성 ▾</span></div>
+<div class="qhead"><div><small>내 경험치</small><span class="xp" id="xp2">0 ★</span></div><div style="text-align:right;cursor:pointer" onclick="openMate('이 퀘스트 어떻게 해요?')"><small>퀘스트 수행방법</small>물어보기 ❔</div></div>
+<div class="qcard"><span class="pill" id="qn">오늘의 첫번째 할 일</span><h3 id="qt"></h3><div class="qmeta" id="qm"></div><div class="qimg" id="qi"></div>
+<div class="qbtns"><button class="p" onclick="doneQuest(5)">✓ 했어요<em>+5 경험치</em></button><label>인증사진까지<em>+10 경험치</em><input type="file" accept="image/*" hidden onchange="doneQuest(10)"></label></div></div></section>
+
+<section class="scr q" id="s-donelist"><button class="back" style="color:#fff" onclick="go('s-home')">‹</button><div class="pt">해낸 퀘스트</div><div id="dl"></div></section>
+
+<section class="scr q" id="s-mate"><button class="back" style="color:#fff" onclick="go(state.mateBack||'s-home')">‹</button><div class="pt" style="margin-top:0">메이트</div>
+<div class="chat" id="chat"></div>
+<div class="chips" id="chips"><button>퀘스트 어떻게 해요?</button><button>자립수당이 뭐예요?</button><button>요즘 너무 힘들어요</button></div>
+<div class="inrow" style="margin-top:8px"><input id="mi" placeholder="메이트에게 말하기"><button onclick="sendMate()">보내기</button></div></section>
+
+<section class="scr q" id="s-call"><button class="back" style="color:#fff" onclick="go(state.callBack||'s-home')">‹</button><div class="pt">기관 전화번호</div>
+<div class="row"><span>보건복지상담센터<br><small style="color:#B9C7E6">복지제도 안내</small></span><a href="tel:129">129</a></div>
+<div class="row"><span>청소년상담 1388<br><small style="color:#B9C7E6">청소년 고민·위기 상담</small></span><a href="tel:1388">1388</a></div>
+<div class="row"><span>자살예방 상담전화<br><small style="color:#B9C7E6">24시간</small></span><a href="tel:109">109</a></div>
+<div class="row"><span>정신건강 위기상담<br><small style="color:#B9C7E6">24시간</small></span><a href="tel:15770199">1577-0199</a></div>
+<div class="row" style="background:transparent;border:1px dashed #4B628F"><span id="localInst">내 지역 기관</span><span style="color:#B9C7E6;font-size:12px">API 연동 시 표시</span></div></section>
+
+<section class="scr q" id="s-others"><button class="back" style="color:#fff" onclick="go('s-home')">‹</button><div class="pt">다른 행성 찾아가기</div>
+<p style="font-size:12.5px;color:#B9C7E6;text-align:center">이름 없이, 오늘의 퀘스트를 끝낸 행성들이에요.<br>응원 별을 보내 보세요.</p><div id="ot"></div></section>
+
+<div class="modal" id="modal" onclick="if(event.target===this)this.classList.remove('on')"><div class="sheet" id="sheet"></div></div>
+</div>
+<p class="foot">시연용 프로토타입입니다. 제도 정보는 샘플 요약이며, 실서비스에서는 한국사회보장정보원 중앙부처·지자체 복지서비스 API와 청소년쉼터·자립지원관 현황 데이터를 연동합니다.</p>
+
+<script>
+const SIDO=["강원","경기","경남","경북","광주","대구","대전","부산","서울","세종","울산","인천","전남","전북","제주","충남","충북"];
+const SGG={"서울":["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"],"인천":["중구","동구","미추홀구","연수구","남동구","부평구","계양구","서구","강화군","옹진군"],"울산":["중구","남구","동구","북구","울주군"],"충북":["청주시","충주시","제천시","보은군","옥천군","영동군","증평군","진천군","괴산군","음성군","단양군"],"전북":["전주시","군산시","익산시","정읍시","남원시","김제시","완주군","진안군","무주군","장수군","임실군","순창군","고창군","부안군"]};
+const LIVE=["부모님, 형제자매랑 같이 살아요","혼자 살아요","배우자 및 자녀와 함께 살아요","자녀와 함께 살아요","친구와 함께 살아요","기숙사 또는 셰어하우스에 살아요","기관에 살아요","고정된 거처가 없어요","가족을 돌보며 살아요","기타"];
+const KW=[["💼","취업정보"],["💰","생계지원"],["🏠","주거제도"],["❤","건강복지"],["➕","기초복지"],["🎓","교육제도"],["💬","마음돌봄"],["⚖","법률지원"],["🌿","생활개선"],["🎵","문화생활"]];
+const CENTER=["인천","울산","충북","전북"];
+// 시연용 샘플: 실제 제도 이름 기준의 요약. 금액은 공개 보도로 확인된 것만 표기
+const SV=[
+{n:"자립수당",o:"보건복지부",k:["생계지원"],t:["자립"],d:"보호종료 후 5년 이내 자립준비청년에게 매월 자립수당 지급 (월 50만 원)",c:"보호종료 시점·기간",m:"주소지 읍·면·동 행정복지센터 또는 복지로"},
+{n:"자립정착금",o:"지방자치단체",k:["생계지원","주거제도"],t:["자립"],d:"보호종료 시 자립 초기 비용 지원 (지역별 1,000만~2,000만 원)",c:"거주 지역별 금액",m:"보호종료 시 시설·지자체 안내"},
+{n:"자립지원전담기관 사례관리",o:"보건복지부",k:["생활개선","마음돌봄"],t:["자립"],d:"자립준비청년 대상 1:1 사례관리, 자립 상담과 지역 자원 연계",c:"보호종료 5년 이내",m:"시·도 자립지원전담기관 문의"},
+{n:"청소년쉼터",o:"성평등가족부",k:["주거제도","기초복지"],t:["가정밖"],d:"가정 밖 청소년에게 일시·단기·중장기 생활 보호와 상담 제공 (전국 138개소, 2023.12 기준)",c:"9~24세 청소년",m:"청소년상담 1388 또는 가까운 쉼터 방문"},
+{n:"청소년자립지원관",o:"성평등가족부",k:["주거제도","취업정보"],t:["가정밖"],d:"쉼터 퇴소 후 가정 복귀가 어려운 청소년의 주거와 자립 지원 (전국 13개소, 2023.12 기준)",c:"쉼터 퇴소 청소년 등",m:"쉼터·지자체 연계"},
+{n:"학교 밖 청소년 지원센터 학업 지원",o:"성평등가족부",k:["교육제도"],t:["가정밖"],d:"검정고시 준비 등 학업 복귀와 진로 탐색 지원",c:"학교 밖 청소년 해당 여부",m:"지역 학교밖청소년지원센터"},
+{n:"청년미래센터",o:"보건복지부",k:["마음돌봄","생활개선"],t:["고립","돌봄"],d:"고립·은둔 청년과 가족돌봄청년 전담 상담·사례관리 (2026.5 기준 인천·울산·충북·전북 운영)",c:"운영 지역 거주 여부",m:"시·도 청년미래센터"},
+{n:"가족돌봄청년 자기돌봄비",o:"보건복지부",k:["생계지원","마음돌봄"],t:["돌봄"],d:"가족을 돌보는 청년 본인의 학업·건강 등 자기돌봄 비용 지원 (연 200만 원)",c:"소득 기준·가족돌봄 여부",m:"청년미래센터·지자체 확인"},
+{n:"청년 마음건강 지원",o:"보건복지부",k:["마음돌봄","건강복지"],t:["공통"],d:"청년 대상 전문 심리상담 서비스 제공",c:"연령·지역 운영 여부",m:"복지로 또는 행정복지센터"},
+{n:"국민취업지원제도",o:"고용노동부",k:["취업정보","생계지원"],t:["공통"],d:"구직자에게 취업지원 서비스와 구직촉진수당 제공",c:"소득·재산, 취업 경험",m:"고용24 또는 고용센터"},
+{n:"청년 월세 지원",o:"국토교통부·지자체",k:["주거제도"],t:["공통"],d:"부모와 따로 사는 무주택 청년의 월세 일부 지원",c:"소득·재산, 무주택",m:"복지로 또는 지자체"},
+{n:"실업크레딧",o:"보건복지부",k:["생계지원"],t:["공통"],d:"구직급여 수급 기간의 국민연금 보험료 일부 지원",c:"구직급여 수급 여부",m:"국민연금공단 또는 고용센터"},
+{n:"기초생활보장 급여",o:"보건복지부",k:["기초복지","생계지원"],t:["공통"],d:"생활이 어려운 가구에 생계·의료·주거·교육 급여 지원",c:"소득인정액 기준",m:"주소지 행정복지센터"},
+{n:"대한법률구조공단 법률상담",o:"법무부",k:["법률지원"],t:["공통"],d:"생활 법률 문제에 대한 무료 법률상담과 소송 지원",c:"지원 대상 요건",m:"132 또는 공단 방문"},
+{n:"문화누리카드",o:"문화체육관광부",k:["문화생활"],t:["공통"],d:"문화·여행·체육 활동 비용 지원 카드",c:"기초생활수급·차상위 여부",m:"행정복지센터 또는 누리집"}];
+const QUESTS={
+ 공통:[["커튼과 창문을 열고 5분간 상쾌한 공기를 마셔주세요","④ 생활습관 · 입문","🪟"],["오늘 일어난 시간을 기록해 주세요","④ 생활습관 · 입문","⏰"],["집 앞 편의점까지 다녀와 보세요","④ 생활습관 · 실천","🏪"],["오늘 한 사람에게 안부 문자를 보내 보세요","③ 관계·정서 · 실천","📱"],["이번 달 생활비 예산을 3줄로 적어 보세요","① 경제 · 입문","📝"]],
+ 자립:[["내가 받을 수 있는 자립지원 3가지를 확인해 보세요","⑤ 서비스 · 연결","📋"]],
+ 가정밖:[["검정고시 일정을 확인해 보세요","② 진로 · 입문","📚"]],
+ 고립:[["15분만 산책하고 하늘 사진을 찍어 보세요","④ 생활습관 · 실천","☁️"]],
+ 돌봄:[["오늘 ‘나를 위한 30분’을 기록해 보세요","③ 관계·정서 · 입문","☕"]]};
+const state={gender:null,age:null,marry:null,sido:null,sgg:null,live:[],kw:[],xp:0,done:[],qi:0,from:null};
+function $(id){return document.getElementById(id)}
+function go(id){document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));$(id).classList.add('on');const dk=$(id).classList.contains('q')||id==='s-splash';$('sb').classList.toggle('w',dk);$(id).scrollTop=0;if(id==='s-path')$('profileNote').textContent=profileText();if(id==='s-call'){$('localInst').textContent=(state.sido||'내 지역')+' '+(state.sgg||'')+' 기관';}}
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),1600)}
+function build(){
+ $('sido').innerHTML=SIDO.map(s=>`<button class="opt" data-v="${s}">${s}</button>`).join('');
+ $('live').innerHTML=LIVE.map(l=>`<label><input type="checkbox" value="${l}">${l}</label>`).join('');
+ $('kw').innerHTML=KW.map(([i,k])=>`<button class="opt" data-v="${k}"><span>${i}</span>${k}</button>`).join('');
+ document.querySelectorAll('[data-k]').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;const k=g.dataset.k;
+  if(g.dataset.multi){b.classList.toggle('sel');state[k]=[...g.querySelectorAll('.sel')].map(x=>x.dataset.v);}
+  else{g.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');state[k]=b.dataset.v;}
+  if(k==='sido'){state.sgg=null;const L=SGG[b.dataset.v];$('sggWrap').style.display='block';$('sgg').innerHTML=(L||['시·군·구는 API 연동 시 전체 제공']).map(s=>`<button class="opt" data-v="${s}" ${L?'':'disabled style="grid-column:1/-1;font-size:12px"'}>${s}</button>`).join('');}
+  refresh();}));
+ $('live').addEventListener('change',()=>{state.live=[...$('live').querySelectorAll('input:checked')].map(x=>x.value);refresh();});
+ $('mi').addEventListener('keydown',e=>{if(e.key==='Enter')sendMate()});
+ $('chips').addEventListener('click',e=>{if(e.target.tagName==='BUTTON'){$('mi').value=e.target.textContent;sendMate();}});
+}
+function refresh(){document.querySelectorAll('[data-need]').forEach(b=>{const v=state[b.dataset.need];b.disabled=!(Array.isArray(v)?v.length:v)})}
+function tracks(){const t=new Set(['공통']);const L=state.live.join(' ');
+ if(/기관|고정된 거처/.test(L))t.add(state.age==='10~19세'?'가정밖':'자립');
+ if(/혼자/.test(L)&&(state.age==='20~25세'||state.age==='10~19세'))t.add('자립');
+ if(/가족을 돌보며/.test(L))t.add('돌봄');
+ if(/부모님/.test(L))t.add('고립');
+ return t}
+function strong(){const t=new Set(['공통']);const L=state.live.join(' ');if(/기관|고정된 거처/.test(L))t.add(state.age==='10~19세'?'가정밖':'자립');if(/가족을 돌보며/.test(L))t.add('돌봄');return t}
+function profileText(){return [state.gender,state.age,state.marry,[state.sido,state.sgg].filter(Boolean).join(' ')].filter(Boolean).join(' · ')}
+function score(s,words,kws,tr){let sc=0;const hay=s.n+' '+s.d+' '+s.k.join(' ');
+ kws.forEach(k=>{if(s.k.includes(k))sc+=3});words.forEach(w=>{if(w&&hay.includes(w))sc+=4});
+ s.t.forEach(x=>{if(tr.has(x))sc+=x==='공통'?1:3});return sc}
+const SITU={"퇴사":["취업정보","생계지원"],"이사":["주거제도"],"자취":["주거제도"],"월세":["주거제도"],"병간호":["마음돌봄","생계지원"],"돌봐":["마음돌봄"],"엄마":["마음돌봄"],"아빠":["마음돌봄"],"힘들":["마음돌봄"],"우울":["마음돌봄","건강복지"],"쉼터":["주거제도"],"학교":["교육제도"],"검정고시":["교육제도"],"돈":["생계지원"],"취업":["취업정보"],"밖에":["생활개선"]};
+function runSearch(fromKw){
+ const q=$('qSearch').value.trim(),situ=$('qSitu').value.trim();let kws=[...state.kw];const tr=tracks();
+ if(/병간호|돌봐|돌봄/.test(situ))tr.add('돌봄');if(/쉼터|집을 나/.test(situ))tr.add('가정밖');if(/보호종료|시설 나/.test(situ))tr.add('자립');
+ Object.keys(SITU).forEach(w=>{if(situ.includes(w))kws.push(...SITU[w])});kws=[...new Set(kws)];
+ const words=q?q.split(/\s+/):[];
+ let list=SV.map(s=>({s,sc:score(s,words,kws,tr)})).filter(x=>x.sc>(q||kws.length?2:0)).sort((a,b)=>b.sc-a.sc).slice(0,6);
+ if(!list.length)list=SV.filter(s=>s.t.includes('공통')).slice(0,4).map(s=>({s,sc:1}));
+ $('sum').innerHTML=`<b>분석 조건</b> · ${profileText()||'프로필 미입력'}${kws.length?'<br>관심: '+kws.join(', '):''}${situ?'<br>상황 분석: “'+situ+'” → '+(kws.join('·')||'일반')+' 분야로 분류':''}${q?'<br>검색어: '+q:''}`;
+ $('res').innerHTML=list.map(({s},i)=>{const st=strong();if(/병간호|돌봐|돌봄/.test(situ))st.add('돌봄');const ok=!/소득|재산|수급/.test(s.c)&&s.t.some(x=>st.has(x));const reg=s.n==='청년미래센터'&&state.sido&&!CENTER.includes(state.sido);
+  return `<div class="card" onclick="detail(${SV.indexOf(s)})"><span class="tag ${ok&&!reg?'t-ok':'t-ch'}">${ok&&!reg?'해당 가능':'확인 필요'}</span>${s.k.map(k=>`<span class="tag t-k">${k}</span>`).join('')}<h4>${s.n}</h4><p>${s.d}</p><div class="why">${reg?'※ '+state.sido+'은 아직 운영 지역이 아니에요 (전국 확대 계획)':'확인 필요: '+s.c}</div></div>`}).join('');
+ go('s-res');}
+function detail(i){const s=SV[i];$('sheet').innerHTML=`<span class="tag t-k">${s.o}</span><h3>${s.n}</h3><dl><dt>지원 내용</dt><dd>${s.d}</dd><dt>확인이 필요한 조건</dt><dd>${s.c}</dd><dt>신청 방법</dt><dd>${s.m}</dd><dt>데이터 출처 (실서비스)</dt><dd>복지서비스 API의 서비스명·지원대상·선정기준·신청방법 항목을 실시간 조회</dd></dl><button class="cta" style="margin-top:16px" onclick="$('modal').classList.remove('on')">닫기</button>`;$('modal').classList.add('on')}
+function queue(){const tr=tracks();const own=[...tr].filter(t=>t!=='공통').flatMap(t=>QUESTS[t]||[]);const c=QUESTS.공통;return [c[0],...own,...c.slice(1)]}
+function startQuest(){updXP();go('s-home')}
+function openQuest(){const q=queue()[state.qi%queue().length];$('qt').textContent=q[0];$('qm').textContent=q[1];$('qi').textContent=q[2];$('qn').textContent=`오늘의 ${['첫','두','세','네','다섯','여섯'][state.qi%6]}번째 할 일`;go('s-quest')}
+function nextLv(){return (Math.floor(state.xp/30)+1)*30}
+function updXP(){const lv=Math.floor(state.xp/30)+1;$('xp1').textContent=state.xp+' ★';$('xp2').textContent=state.xp+' ★';const s=70+lv*18;$('orb').style.width=$('orb').style.height=s+'px';$('ring').style.width=(s+60)+'px';$('ring').style.height=(s*0.45)+'px';$('lv').textContent=`Lv.${lv} · 다음 단계까지 ${nextLv()-state.xp}점`}
+function doneQuest(p){const q=queue()[state.qi%queue().length];state.xp+=p;state.done.unshift([q[0],p]);state.qi++;updXP();toast('+'+p+' 경험치!');
+ $('dl').innerHTML=state.done.map(d=>`<div class="row"><span>${d[0]}</span><span class="xp" style="font-size:14px">+${d[1]}</span></div>`).join('');
+ const conn=q[1].includes('연결');setTimeout(()=>{if(conn){state.from='s-home';$('qSearch').value='자립';runSearch()}else openQuest()},700)}
+function openMate(pre){state.mateBack=$('s-quest').classList.contains('on')?'s-quest':'s-home';if(!$('chat').children.length)addM('b','안녕하세요, 저는 메이트예요.\n퀘스트 방법이나 궁금한 제도를 편하게 물어보세요.');go('s-mate');if(pre){$('mi').value=pre;sendMate()}}
+function addM(w,t,cls){const d=document.createElement('div');d.className='m '+w+(cls?' '+cls:'');d.textContent=t;$('chat').appendChild(d);$('chat').scrollTop=1e6}
+const CRISIS=/죽고|자살|사라지고|살기 싫|끝내고|너무 힘들|힘들어|해치/;
+function sendMate(){const t=$('mi').value.trim();if(!t)return;$('mi').value='';addM('u',t);setTimeout(()=>{
+ if(CRISIS.test(t)){addM('b','말해줘서 고마워요. 지금 많이 힘든 마음이 느껴져요.\n이건 저보다 사람과 함께 이야기하는 게 꼭 필요해요.','alert');addM('b','24시간 연결돼요\n· 자살예방 상담전화 109\n· 정신건강 위기상담 1577-0199\n· 청소년이라면 1388\n\n‘기관 전화번호’에서 바로 걸 수 있어요.','alert');return}
+ if(/퀘스트|어떻게/.test(t)){const q=queue()[state.qi%queue().length];addM('b',`지금 퀘스트는 “${q[0]}”예요.\n완벽하게 안 해도 괜찮아요. 1분만 해도 ‘했어요’를 누르면 돼요.`);return}
+ const hit=SV.find(s=>t.includes(s.n.replace(/\s/g,'').slice(0,4))||t.includes(s.n.split(' ')[0]));
+ if(hit){addM('b',`${hit.n}: ${hit.d}\n확인할 조건: ${hit.c}\n신청: ${hit.m}\n\n(실서비스에서는 복지서비스 API 원문을 근거로 답해요)`);return}
+ addM('b','그 부분은 ‘제도 알아보기’에서 상황을 한 줄로 적어 주시면 맞는 제도를 찾아드릴게요.')},450)}
+function others(){const n=['오늘 창문 열기 완료','기상 시간 기록 3일째','편의점 다녀오기 성공','안부 문자 보냈어요','산책 15분'];$('ot').innerHTML=n.map((x,i)=>`<div class="row"><span>🪐 행성 #${(i*37+113)%999}<br><small style="color:#B9C7E6">${x}</small></span><button class="kwbtn" style="width:auto;padding:6px 10px;font-size:12px" onclick="this.textContent='★ 보냄';this.disabled=true">응원 별</button></div>`).join('')}
+function resetAll(){location.reload()}
+build();others();refresh();updXP();
+</script>
+
+</body>
+</html>
